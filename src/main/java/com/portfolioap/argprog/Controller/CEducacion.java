@@ -26,7 +26,7 @@ public class CEducacion {
     @Autowired
     SEducacion sEducacion;
     
-    @GetMapping("/lista")
+    @RequestMapping("/lista")
     @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public ResponseEntity<List<Educacion>> list(){
         List<Educacion> list = sEducacion.list();
