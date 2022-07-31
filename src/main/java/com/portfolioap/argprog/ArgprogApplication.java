@@ -18,7 +18,7 @@ public class ArgprogApplication {
                 return new WebMvcConfigurer(){
                     @Override
                     public void addCorsMappings(CorsRegistry registry){
-                        registry.addMapping("")
+                        registry.addMapping("/**")
                                 .allowedOrigins("https://proyectofinalargprog-24f4c.web.app/")
                                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                                 .allowedHeaders("Access-Control-Allow-Origin")
