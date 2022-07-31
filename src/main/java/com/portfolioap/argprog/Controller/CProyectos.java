@@ -28,12 +28,14 @@ public class CProyectos {
     SProyectos sProyectos;
 
     @GetMapping("/lista")
+    @CrossOrigin(origins = "https://proyectofinalargprog-24f4c.web.app/")
     public ResponseEntity<List< Proyectos>> list() {
         List<Proyectos> list = sProyectos.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
     @GetMapping("/detail/{id}")
+    @CrossOrigin(origins = "https://proyectofinalargprog-24f4c.web.app/")
     public ResponseEntity<Proyectos> getById(@PathVariable("id") int id) {
         if (!sProyectos.existsById(id)) {
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
@@ -43,6 +45,7 @@ public class CProyectos {
     }
 
     @DeleteMapping("/delete/{id}")
+    @CrossOrigin(origins = "https://proyectofinalargprog-24f4c.web.app/")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!sProyectos.existsById(id)) {
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
@@ -52,6 +55,7 @@ public class CProyectos {
     }
 
     @PostMapping("/create")
+    @CrossOrigin(origins = "https://proyectofinalargprog-24f4c.web.app/")
     public ResponseEntity<?> create(@RequestBody dtoProyectos dtopro) {
         if (StringUtils.isBlank(dtopro.getNombrePro())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -67,6 +71,7 @@ public class CProyectos {
     }
 
     @PutMapping("/update/{id}")
+    @CrossOrigin(origins = "https://proyectofinalargprog-24f4c.web.app/")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoProyectos dtopro) {
         //validamos ID
         if (!sProyectos.existsById(id)) {
