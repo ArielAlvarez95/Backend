@@ -21,6 +21,7 @@ public class ArgprogApplication {
                         registry.addMapping("")
                                 .allowedOrigins("https://proyectofinalargprog-24f4c.web.app/")
                                 .allowedMethods("GET", "POST", "PUT", "DELETE")
+                                .allowedHeaders("Access-Control-Allow-Origin")
                                 .maxAge(3600);              
                     } 
         };
