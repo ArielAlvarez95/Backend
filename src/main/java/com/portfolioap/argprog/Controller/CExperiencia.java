@@ -52,7 +52,7 @@ public class CExperiencia {
 
     
     @PostMapping("/create")
-    @CrossOrigin(origins = "https://proyectofinalargprog-24f4c.web.app/")
+    @CrossOrigin(origins = "*", allowedHeaders = "*") 
     public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoexp){      
         if(StringUtils.isBlank(dtoexp.getNombreE()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
