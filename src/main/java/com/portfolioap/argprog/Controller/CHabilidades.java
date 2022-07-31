@@ -27,14 +27,12 @@ public class CHabilidades {
     SHabilidades sHabilidades;
 
     @GetMapping("/lista")
-    @CrossOrigin(origins = "https://proyectofinalargprog-24f4c.web.app/")
     public ResponseEntity<List<Habilidades>> list() {
         List<Habilidades> list = sHabilidades.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
     @GetMapping("/detail/{id}")
-    @CrossOrigin(origins = "https://proyectofinalargprog-24f4c.web.app/")
     public ResponseEntity<Habilidades> getById(@PathVariable("id") int id) {
         if (!sHabilidades.existsById(id)) {
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
@@ -44,7 +42,6 @@ public class CHabilidades {
     }
 
     @DeleteMapping("/delete/{id}")
-    @CrossOrigin(origins = "https://proyectofinalargprog-24f4c.web.app/")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!sHabilidades.existsById(id)) {
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
@@ -54,7 +51,6 @@ public class CHabilidades {
     }
 
     @PostMapping("/create")
-    @CrossOrigin(origins = "https://proyectofinalargprog-24f4c.web.app/")
     public ResponseEntity<?> create(@RequestBody dtoHabilidades dtohabilidades) {
         if (StringUtils.isBlank(dtohabilidades.getNombreH())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -70,7 +66,6 @@ public class CHabilidades {
     
     
     @PutMapping("/update/{id}")
-    @CrossOrigin(origins = "https://proyectofinalargprog-24f4c.web.app/")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoHabilidades dtohabilidades) {
         //validamos ID
         if (!sHabilidades.existsById(id)) {

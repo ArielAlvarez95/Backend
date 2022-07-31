@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class IPersonaController {
     @Autowired IPersonaService ipersonaService;
     @GetMapping("/personas/traer")
-    @CrossOrigin(origins = "proyectofinalargprog-24f4c.web.app")
     public List<Persona> getPersona(){
         return ipersonaService.getPersona();
     }
