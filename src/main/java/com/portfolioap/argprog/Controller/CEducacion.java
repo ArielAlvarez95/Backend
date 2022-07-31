@@ -32,7 +32,6 @@ public class CEducacion {
         return new ResponseEntity(list, HttpStatus.OK);
     } 
     
-    
     @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> getById(@PathVariable("id") int id){
         if(!sEducacion.existsById(id))

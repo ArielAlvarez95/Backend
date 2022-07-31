@@ -10,4 +10,4 @@ public class ArgprogApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ArgprogApplication.class, args);
 	}
-}  
+}
