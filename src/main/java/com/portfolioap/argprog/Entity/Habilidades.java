@@ -18,7 +18,7 @@ public class Habilidades {
     public Habilidades() {
     }
 
-    public Habilidades(String nombreS, String porcentajeH, String imagenH) {
+    public Habilidades(String nombreH, String porcentajeH, String imagenH) {
         this.nombreH = nombreH;
         this.porcentajeH = porcentajeH;
         this.imagenH = imagenH;

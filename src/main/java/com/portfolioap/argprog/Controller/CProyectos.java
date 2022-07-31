@@ -57,7 +57,7 @@ public class CProyectos {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
         if (sProyectos.existsByNombrePro(dtopro.getNombrePro())) {
-            return new ResponseEntity(new Mensaje("Esa experiencia existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Ese proyecto existe"), HttpStatus.BAD_REQUEST);
         }
 
         Proyectos proyectos = new Proyectos(dtopro.getNombrePro(), dtopro.getDescripcionPro(), dtopro.getImagenPro());

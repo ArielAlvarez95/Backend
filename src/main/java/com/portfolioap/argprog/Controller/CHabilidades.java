@@ -56,7 +56,7 @@ public class CHabilidades {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
         if (sHabilidades.existsByNombreH(dtohabilidades.getNombreH())) {
-            return new ResponseEntity(new Mensaje("Esa skill existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Esa habilidad existe"), HttpStatus.BAD_REQUEST);
         }
 
         Habilidades habilidades = new Habilidades(dtohabilidades.getNombreH(), dtohabilidades.getPorcentajeH(), dtohabilidades.getImagenH());
