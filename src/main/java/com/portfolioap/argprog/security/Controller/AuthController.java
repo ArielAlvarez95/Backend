@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "https://proyectofinalargprog-24f4c.web.app/")
+@CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
 public class AuthController {
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -44,6 +44,7 @@ public class AuthController {
     JwtProvider jwtProvider;
     
     @PostMapping("/nuevo")
+    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult){
         if(bindingResult.hasErrors())
             return new ResponseEntity(new Mensaje("Campos mal puestos o email invalido"),HttpStatus.BAD_REQUEST);
@@ -69,6 +70,7 @@ public class AuthController {
     }
     
     @PostMapping("/login")
+    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public ResponseEntity<JwtDto>login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult){
         if(bindingResult.hasErrors())
             return new ResponseEntity(new Mensaje("Campos mal puestos"),HttpStatus.BAD_REQUEST);

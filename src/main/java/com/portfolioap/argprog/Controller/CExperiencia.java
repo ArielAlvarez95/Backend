@@ -22,18 +22,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/explab")
-@CrossOrigin(origins = "https://proyectofinalargprog-24f4c.web.app/")
+@CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
 public class CExperiencia {
     @Autowired
     SExperiencia sExperiencia;
     
     @GetMapping("/lista")
+    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public ResponseEntity<List<Experiencia>> list(){
         List<Experiencia> list = sExperiencia.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
     
     @GetMapping("/detail/{id}")
+    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public ResponseEntity<Experiencia> getById(@PathVariable("id") int id){
         if(!sExperiencia.existsById(id))
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
@@ -42,6 +44,7 @@ public class CExperiencia {
     }
     
     @DeleteMapping("/delete/{id}")
+    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!sExperiencia.existsById(id)) {
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
@@ -52,6 +55,7 @@ public class CExperiencia {
 
     
     @PostMapping("/create")
+    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoexp){      
         if(StringUtils.isBlank(dtoexp.getNombreE()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -65,6 +69,7 @@ public class CExperiencia {
     }
     
     @PutMapping("/update/{id}")
+    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoExperiencia dtoexp){
         //Validamos si existe el ID
         if(!sExperiencia.existsById(id))
