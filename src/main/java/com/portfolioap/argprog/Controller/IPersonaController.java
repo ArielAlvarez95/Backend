@@ -12,22 +12,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
+@RequestMapping("/personas")
 public class IPersonaController {
     @Autowired IPersonaService ipersonaService;
     @GetMapping("/personas/traer")
-    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public List<Persona> getPersona(){
         return ipersonaService.getPersona();
     }
     
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/personas/crear")
-    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public String createPersona(@RequestBody Persona persona){
         ipersonaService.savePersona(persona);
         return "La persona fue creada con exito";
@@ -35,7 +35,6 @@ public class IPersonaController {
     
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/personas/borrar/{id}")
-    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public String deletePersona(@PathVariable long id){
         ipersonaService.deletePersona(id);
         return "La persona fue eliminada con exito";
@@ -43,7 +42,6 @@ public class IPersonaController {
     
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/personas/editar/{id}")
-    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public Persona editPersona(@PathVariable Long id,
                                @RequestParam("nombre") String nuevoNombre,
                                @RequestParam("apellido") String nuevoApellido,
@@ -60,7 +58,6 @@ public class IPersonaController {
         return persona;
 }
     @GetMapping("/personas/traer/perfil")
-    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public Persona findPersona(){
         return ipersonaService.findPersona((long)1);
     }

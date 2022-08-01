@@ -27,14 +27,12 @@ public class CEducacion {
     SEducacion sEducacion;
     
     @RequestMapping("/lista")
-    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public ResponseEntity<List<Educacion>> list(){
         List<Educacion> list = sEducacion.list();
         return new ResponseEntity(list, HttpStatus.OK);
     } 
     
     @GetMapping("/detail/{id}")
-    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public ResponseEntity<Educacion> getById(@PathVariable("id") int id){
         if(!sEducacion.existsById(id))
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
@@ -43,7 +41,6 @@ public class CEducacion {
     }
     
     @DeleteMapping("/delete/{id}")
-    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public ResponseEntity<?> delete(@PathVariable("id") int id){
         if(!sEducacion.existsById(id)){
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
@@ -53,7 +50,6 @@ public class CEducacion {
     }
     
     @PostMapping("/create")
-    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public ResponseEntity<?> create(@RequestBody dtoEducacion dtoeduc){
         if(StringUtils.isBlank(dtoeduc.getNombreD()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -67,7 +63,6 @@ public class CEducacion {
     }
     
     @PutMapping("/update/{id}")
-    @CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoEducacion dtoeduc){
         if(!sEducacion.existsById(id))
             return new ResponseEntity(new Mensaje("El id no existe"), HttpStatus.BAD_REQUEST);
