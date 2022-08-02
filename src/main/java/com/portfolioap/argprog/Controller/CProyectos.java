@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("pro")
-@CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
+@RequestMapping("/pro/")
+@CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/pro/")
 public class CProyectos {
 
     @Autowired
