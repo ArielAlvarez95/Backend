@@ -14,8 +14,8 @@ public class ArgprogApplication {
     public static void main(String[] args) {
         SpringApplication.run(ArgprogApplication.class, args);
     }
-@Bean
-
+    
+        @Bean
 	public CorsFilter corsFilter() {
 
 		CorsConfiguration corsConfiguration = new CorsConfiguration();

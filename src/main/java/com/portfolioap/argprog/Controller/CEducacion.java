@@ -26,7 +26,7 @@ public class CEducacion {
     @Autowired
     SEducacion sEducacion;
     
-    @RequestMapping("/lista")
+    @RequestMapping("lista")
     public ResponseEntity<List<Educacion>> list(){
         List<Educacion> list = sEducacion.list();
         return new ResponseEntity(list, HttpStatus.OK);
