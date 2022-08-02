@@ -18,8 +18,9 @@ public class ArgprogApplication {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("https://proyectofinalargprog.herokuapp.com/")
+                registry.addMapping("/api/**")
                         .allowedOrigins("https://proyectofinalargprog.herokuapp.com/lista")
+                        .allowedHeaders("*")
                         .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "Access-Control-Allow-Origin");
             }
         };
