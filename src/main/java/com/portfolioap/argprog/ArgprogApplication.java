@@ -16,7 +16,7 @@ public class ArgprogApplication {
 @Bean
     CorsConfigurationSource corsConfigurationSource() {
      CorsConfiguration cc = new CorsConfiguration();
-                cc.setAllowedHeaders(Arrays.asList("Origin,Accept", "X-Requested-With", "Content-Type", "Access-Control-Request-Method", "Access-Control-Request-Headers","Authorization"));
+                cc.setAllowedHeaders(Arrays.asList("Access-Control-Allow-Origin", "Origin,Accept", "X-Requested-With", "Content-Type", "Access-Control-Request-Method", "Access-Control-Request-Headers","Authorization"));
                 cc.setExposedHeaders(Arrays.asList("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"));                
                 cc.setAllowedOrigins(Arrays.asList("/*"));
                 cc.setAllowedMethods(Arrays.asList("GET", "POST", "OPTIONS", "PUT","PATCH"));
