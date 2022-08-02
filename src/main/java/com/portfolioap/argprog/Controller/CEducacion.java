@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/educ")
-@CrossOrigin(origins = "https://proyectofinalargprog.herokuapp.com/")
+@RequestMapping("/educ")
+@CrossOrigin(origins = "https://proyectofinalargprog-24f4c.web.app/")
 public class CEducacion {
     @Autowired
     SEducacion sEducacion;
